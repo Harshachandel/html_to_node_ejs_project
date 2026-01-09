@@ -1,0 +1,68 @@
+/* Animated Background */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #a8b8d8 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Glassmorphism Navbar */
+.navbar {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced Titles */
+.home-title, .about-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Premium Cards */
+.card-custom, .about-card {
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 100%;
+}
+.card-custom:hover, .about-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(44, 62, 80, 0.3);
+}
+.card-custom::before, .about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+.card-custom:hover::before, .about-card:hover::before {
+    opacity: 1;
+}
+
+/* Existing rules preserved + responsive */
+.section-wrapper, .about-wrapper { padding: 60px 20px; }
+.card-custom h3, .about-card h3 { color: #2c3e50; font-weight: 700; }
+@media (max-width: 768px) {
+    .home-title, .about-title { font-size: 2.2rem; }
+}

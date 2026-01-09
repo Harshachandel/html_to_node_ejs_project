@@ -1,0 +1,28 @@
+<%- include('../layout/headerSection') %>
+<%- include('../layout/header') %>
+
+<div class="section-wrapper">
+    <h1 class="home-title text-center mb-5">Home Page</h1>
+
+    <!-- Static Cards -->
+    <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card-custom text-center p-4 position-relative overflow-hidden">
+                <h3>Name: Harsha</h3>
+                <img src="/images/image1-std.avif" class="w-100 my-3 rounded-3" height="200" alt="Profile">
+                <p class="mb-0">Full-stack developer building premium UIs.</p>
+            </div>
+        </div>
+        <!-- Repeat for other static cards with same class additions -->
+        <% allData.forEach(function(ele) { %>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card-custom text-center p-4 position-relative overflow-hidden">
+                    <h3><%= ele.name %></h3>
+                    <p class="mb-0">ID: <%= ele.id %> - Dynamic Entry</p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('../layout/footer') %>
