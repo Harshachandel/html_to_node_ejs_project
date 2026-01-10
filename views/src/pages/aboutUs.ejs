@@ -33,78 +33,54 @@
                 background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b);
             "></div>
             
-            <img src="/images/image1-std.avif" 
-                 style="
-                    width: 250px; height: 150px;
-                    border-radius: 50%;
-                    margin-bottom: 2rem;
-                    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-                    border: 5px solid white;
-                " 
-                 alt="Harsha">
             
-            <h2 style="color: #1e293b; font-size: 2.5em; margin-bottom: 1rem;">Harsha Chandel</h2>
-            <p style="color: #3b82f6; font-size: 1.3em; font-weight: 600; margin-bottom: 2rem;">
-                Full-Stack Developer
-            </p>
             
-            <p style="color: #64748b; font-size: 1.1em; line-height: 1.7; margin-bottom: 2rem;">
-                Building responsive React applications, n8n automation workflows, and seamless API integrations. 
-                Passionate about modern UI/UX design and creating polished digital experiences.
-            </p>
+            <img src="<%= aboutData.profile.image %>" style="width: 450px;" alt="Harsha">
+
+<h2 style="color: #1e293b; font-size: 2.5em;">
+  <%= aboutData.profile.name %>
+</h2>
+
+<p style="color: #3b82f6; font-size: 1.3em; font-weight: 600;">
+  <%= aboutData.profile.role %>
+</p>
+
+<p style="color: #64748b; font-size: 1.1em; line-height: 1.7;">
+  <%= aboutData.profile.description %>
+</p>
+
             
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                <span style="
-                    background: #eff6ff; 
-                    color: #1e40af; 
-                    padding: 0.5rem 1.5rem;
-                    border-radius: 25px;
-                    font-weight: 600;
-                ">React.js</span>
-                <span style="
-                    background: #eff6ff; 
-                    color: #1e40af; 
-                    padding: 0.5rem 1.5rem;
-                    border-radius: 25px;
-                    font-weight: 600;
-                ">n8n</span>
-                <span style="
-                    background: #eff6ff; 
-                    color: #1e40af; 
-                    padding: 0.5rem 1.5rem;
-                    border-radius: 25px;
-                    font-weight: 600;
-                ">APIs</span>
-                <span style="
-                    background: #eff6ff; 
-                    color: #1e40af; 
-                    padding: 0.5rem 1.5rem;
-                    border-radius: 25px;
-                    font-weight: 600;
-                ">UI/UX</span>
-            </div>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+  <% aboutData.profile.skills.forEach(skill => { %>
+    <span style="
+      background: #eff6ff;
+      color: #1e40af;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+    ">
+      <%= skill %>
+    </span>
+  <% }) %>
+</div>
+
         </div>
     </div>
 
     <!-- Stats Section -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto; padding: 0 20px;">
-        <div style="text-align: center; padding: 2rem;">
-            <div style="font-size: 3rem; color: #3b82f6; font-weight: bold;">50+</div>
-            <div style="color: #64748b; font-size: 1.1em;">Projects Completed</div>
-        </div>
-        <div style="text-align: center; padding: 2rem;">
-            <div style="font-size: 3rem; color: #10b981; font-weight: bold;">2+</div>
-            <div style="color: #64748b; font-size: 1.1em;">Years Experience</div>
-        </div>
-        <div style="text-align: center; padding: 2rem;">
-            <div style="font-size: 3rem; color: #f59e0b; font-weight: bold;">100%</div>
-            <div style="color: #64748b; font-size: 1.1em;">Client Satisfaction</div>
-        </div>
-        <div style="text-align: center; padding: 2rem;">
-            <div style="font-size: 3rem; color: #ef4444; font-weight: bold;">24/7</div>
-            <div style="color: #64748b; font-size: 1.1em;">Support Available</div>
-        </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+  <% aboutData.stats.forEach(stat => { %>
+    <div style="text-align: center; padding: 2rem;">
+      <div style="font-size: 3rem; ">
+        <%= stat.value %>
+      </div>
+      <div style="color: #64748b; font-size: 1.1em;">
+        <%= stat.label %>
+      </div>
     </div>
+  <% }) %>
+</div>
+
 </div>
 
 <%- include('../layout/footer') %>

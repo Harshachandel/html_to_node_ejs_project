@@ -5,26 +5,20 @@
 
     <h1 class="about-title text-center mb-5">Projects</h1>
 
-    <% 
-        const teamData = [1, 2, 3, 4, 5, 6];
-    %>
 
     <div class="row justify-content-center">
-        <% allData.forEach(function(item) { %>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="about-card text-center p-3">
-                    <h3> <%= item.name%></h3>
+        <% allData.forEach(item => { %>
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="about-card text-center p-3">
+      <h3><%= item.name %></h3>
 
-                    <img src=<%= item.images%>
-                         class="w-100 my-3" height="200"/>
+      <img src="<%= item.image %>" class="w-100 my-3" height="200"/>
 
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Repellat, ipsa accusamus.
-                    </p>
-                </div>
-            </div>
-        <% }) %>
+      <p><%= item.description %></p>
+    </div>
+  </div>
+<% }) %>
+
     </div>
 
 </div>
